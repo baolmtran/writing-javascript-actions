@@ -145,15 +145,15 @@ We will start with using the parameters that are **required** and later implemen
 
 1. Create a new file in: `.github/actions/joke-action/action.yml`
 2. Add the following contents to the `.github/actions/joke-action/action.yml` file:
-   ```yaml
-   name: "my joke action"
+  ```yaml
+  name: "My joke action"
 
-   description: "Use an external API to retrieve and display a joke"
+  description: "Use an external API to retrieve and display a joke"
 
-   runs:
-     using: "node16"
-     main: "main.js"
-   ```
+  runs:
+    using: "node16"
+    main: "main.js"
+  ```
 3. Save the `action.yml` file
 4. Commit the changes and push them to the `main` branch:
    ```shell
@@ -199,24 +199,24 @@ All of the following steps take place inside of the `.github/actions/joke-action
 Our action does not require much metadata for it to run correctly. We will not be accepting any inputs, we will however be setting a single output this time.
 
 1. Update the action metadata file `.github/actions/joke-action/action.yml` with the following content:
-   ```yaml
-   name: "my joke action"
+  ```yaml
+  name: "My joke action"
 
-   description: "use an external API to retrieve and display a joke"
+  description: "Use an external API to retrieve and display a joke"
 
-   outputs:
-     joke-output:
-       description: The resulting joke from the icanhazdadjokes API
+  outputs:
+    joke-output:
+      description: The resulting joke from the icanhazdadjokes API
 
-   runs:
-     using: "node12"
-     main: "main.js"
-   ```
+  runs:
+    using: "node16"
+    main: "main.js"
+  ```
 2. Save the `action.yml` file
 3. Commit the changes and push them to GitHub:
    ```shell
    git add action.yml
-   git commit -m 'add metadata for the joke action'
+   git commit -m 'Step 3: Create the metadata file.'
    git pull
    git push
    ```
