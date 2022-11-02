@@ -380,7 +380,7 @@ _Don't forget to call the `run()` function._
 5. Commit the changes to this branch and push them to GitHub:
    ```shell
    git add joke.js main.js
-   git commit -m 'creating joke.js and main.js'
+   git commit -m 'Step 4: Create the JavaScript files for your action.'
    git pull
    git push
    ```
