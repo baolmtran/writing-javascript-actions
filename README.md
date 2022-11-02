@@ -6,7 +6,7 @@
   Add your open source license, GitHub uses Creative Commons Attribution 4.0 International.
 -->
 
-# GitHub Actions: Writing JavaScript Actions
+# [GitHub Actions: Writing JavaScript Actions](https://github.com/skills/writing-javascript-actions.git)
 
 
 <!--
@@ -25,7 +25,7 @@ Write your own GitHub JavaScript Action and automate customized tasks unique to 
 - **Who is this for**: Developers, GitHub users, users new to Git, students, managers, and for teams.
 - **What you'll learn**: How to consume actions within a workflow file, create custom JavaScript based actions and publish your newly created action to the marketplace.
 - **Prerequisites**: Before you start, you should be familiar with GitHub, GitHub Actions, and Continuous Integration with GitHub Actions.
-- **How long**: This course is 6 steps long and takes about 1 to 2 hours to be completed. 
+- **How long**: This course is 6 steps long and takes about 1 to 2 hours to be completed.
 
 ## How to start this course
 
@@ -83,7 +83,7 @@ Most of your work going forward will take place away from your Skills repository
 1. [ ] [Node.js](https://nodejs.org)
 2. [ ] [Visual Studio Code](https://code.visualstudio.com/) or your editor of choice
 3. [ ] [Git](https://git-scm.com/)
-  
+
 ### Activity 1: Initialize a new JavaScript project
 
 Once you have the necessary tools installed locally, follow these steps to begin creating your first action.
@@ -97,7 +97,7 @@ Once you have the necessary tools installed locally, follow these steps to begin
    ```shell
    cd <local folder with cloned repo>
    ```
-4. We are using branch called `main`. 
+4. We are using branch called `main`.
    ```shell
    git switch main
    ```
@@ -120,7 +120,7 @@ Once you have the necessary tools installed locally, follow these steps to begin
 9. Commit those newly added files,we will remove the need to upload **node_modules** in a later step:
    ```shell
    git add .
-   git commit -m 'add project dependencies'
+   git commit -m 'Step 1: Initialize a new JavaScript project.'
    ```
 10. Push your changes to your repository:
     ```shell
@@ -129,12 +129,12 @@ Once you have the necessary tools installed locally, follow these steps to begin
 11. Wait about 20 seconds then refresh this page for the next step.
 
 </details>
-  
+
 <details id=2 open>
 <summary><h2> Step 2: Configure Your Action</h2></summary>
 
 ### Excellent!
-  
+
 Now that we have the custom action pre-requisites, let us create **joke-action** action.
 
 ### Activity 1: Configure Your Action
@@ -148,24 +148,24 @@ We will start with using the parameters that are **required** and later implemen
    ```yaml
    name: "my joke action"
 
-   description: "use an external API to retrieve and display a joke"
+   description: "Use an external API to retrieve and display a joke"
 
    runs:
-     using: "node12"
+     using: "node16"
      main: "main.js"
    ```
 3. Save the `action.yml` file
 4. Commit the changes and push them to the `main` branch:
    ```shell
    git add action.yml
-   git commit -m 'create action.yml'
+   git commit -m 'Step 2: Configure Your Action.'
    git pull
    git push
    ```
 5. Wait about 20 seconds then refresh this page for the next step.
 
 </details>
-  
+
 <details id=3>
 <summary><h2> Step 3: Create the metadata file</h2></summary>
 
@@ -193,7 +193,7 @@ This file defines the following information about your action:
 Read more about [Action metadata](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions)
 
 ### Activity 1: Create the metadata file
-  
+
 All of the following steps take place inside of the `.github/actions/joke-action` directory.
 
 Our action does not require much metadata for it to run correctly. We will not be accepting any inputs, we will however be setting a single output this time.
@@ -223,7 +223,7 @@ Our action does not require much metadata for it to run correctly. We will not b
 4. Wait about 20 seconds then refresh this page for the next step.
 
 </details>
-  
+
 <details id=4>
 <summary><h2> Step 4: Create the JavaScript files for your action</h2></summary>
 
@@ -296,7 +296,7 @@ Next we define an **asynchronous JavaScript function** to make the request for u
 Lastly, we `return` the `res.joke` which is only the value associated with the `joke` key of the JSON Object. This value will be random every time our action runs because of how we are interacting with the **icanhazdadjoke** API.
 
 This file finishes up by exporting the newly created function so that we can use it in our `main.js` file.
-  
+
 </details>
 
 ### Creating the main entry point for your action
@@ -333,7 +333,7 @@ Finally we finish the function with by setting the contents of the joke as the v
 _Don't forget to call the `run()` function._
 
 </details>
-  
+
 ### Activity 1: Creating the JavaScript files for your new action.
 
 1. Create and add the following contents to the `.github/actions/joke-action/joke.js` file:
@@ -386,14 +386,14 @@ _Don't forget to call the `run()` function._
    ```
 
 </details>
-  
+
 <details id=5>
 <summary><h2> Step 5: Add your action to the workflow file</h2></summary>
 
 ### Great job!
-  
+
 All of the following steps will add the action to the workflow file that’s already in the repo [`my-workflow.yml` file](/.github/workflows/my-workflow.yml)
-  
+
 ### Activity 1: Edit the custom action at the bottom of the workflow file.
 
 ```yaml
@@ -401,7 +401,7 @@ All of the following steps will add the action to the workflow file that’s alr
         uses: ./.github/actions/joke-action
 ```
 
-Here is what the full file should look like (we’re using issues instead of the pull request event and removing the reference to the hello world action.) 
+Here is what the full file should look like (we’re using issues instead of the pull request event and removing the reference to the hello world action.)
 
 ```yaml
 name: JS Actions
@@ -421,14 +421,14 @@ jobs:
         uses: ./.github/actions/joke-action
 
 ```
-  
+
 </details>
-  
+
 <details id=6>
 
 <summary><h2> Step 6: Trigger the joke action</h2></summary>
 
-### Great job! 
+### Great job!
 Everything is all set up and now we are ready to start laughing. You will find you have some joke related labels available to you in this repository. You don't have to use them, any label will trigger our workflow, but the easiest way to follow along would be to use suggested labels.
 
 ### Trigger a joke
@@ -437,13 +437,13 @@ Everything is all set up and now we are ready to start laughing. You will find y
 2. Apply the `first-joke` label to the issue
 3. Wait a few seconds and then apply the `second-joke` label to the issue
 4. Check the workflow results on the "Actions tab"
- 
+
 </details>
 
 <details id=X>
 <summary><h2>Finish</h2></summary>
 
-### Congratulations, you've completed this course! 
+### Congratulations, you've completed this course!
 
 In this course, you've learned a lot about developing custom actions using JavaScript and Actions Toolkit.
 
@@ -458,10 +458,10 @@ Some notable actions you will find on the marketplace are:
 - [Jekyll action](https://github.com/marketplace/actions/jekyll-action)
 - [Run Jest](https://github.com/marketplace/actions/run-jest)
 
-And that just scratches the surface of the 1600+ and counting actions you will find on the marketplace 
+And that just scratches the surface of the 1600+ and counting actions you will find on the marketplace
 
 Follow [this guide](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace#publishing-an-action) to learn how to publish your actions to the GitHub Marketplace
-  
+
 ### What's next?
 
 - [Take another GitHub Skills course](https://github.com/githubskills).
@@ -475,4 +475,3 @@ Follow [this guide](https://help.github.com/en/actions/automating-your-workflow-
 Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
 &copy; 2022 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
-
